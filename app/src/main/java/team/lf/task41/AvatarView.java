@@ -20,7 +20,7 @@ public class AvatarView extends ConstraintLayout {
     private ImageView mPhoto;
 
     public AvatarView(Context context) {
-        this(context,null);
+        this(context, null);
     }
 
     public AvatarView(Context context, @Nullable AttributeSet attrs) {
@@ -36,34 +36,36 @@ public class AvatarView extends ConstraintLayout {
         mPhoto = findViewById(R.id.photo);
 
         TypedArray mainTypedArray = context.getTheme()
-                .obtainStyledAttributes(attrs, R.styleable.AvatarView,0,R.style.AppTheme);
-        String nameText = mainTypedArray.getString(R.styleable.AvatarView_nameText);
+                .obtainStyledAttributes(attrs, R.styleable.AvatarView, 0, R.style.AppTheme);
+        String nameText = mainTypedArray.getString(R.styleable.AvatarView_name);
         setName(nameText);
 
-        int imageResource = mainTypedArray.getInt(R.styleable.AvatarView_photo, R.drawable.ic_man);
+        int imageResource = mainTypedArray.getResourceId(R.styleable.AvatarView_photo, R.drawable.ic_man);
         setPhoto(imageResource);
 
-        Boolean status = mainTypedArray.getBoolean(R.styleable.AvatarView_status,false);
+        Boolean status = mainTypedArray.getBoolean(R.styleable.AvatarView_isOnline, false);
         setStatus(status);
 
         mainTypedArray.recycle();
     }
 
-    public void setName(CharSequence name){
-        mName.setText(name);
+    public void setName(CharSequence name) {
+        if (!TextUtils.isEmpty(name))
+            mName.setText(name);
+        else mName.setText("Дефаулт Дефаултов");
     }
-    public void setPhoto(int  imageResource){
-        if(imageResource!=0){
+
+    public void setPhoto(int imageResource) {
+        if (imageResource != 0) {
             mPhoto.setImageResource(imageResource);
-        }
-        else{
+        } else {
             mPhoto.setImageResource(R.drawable.ic_man);
         }
     }
 
     public void setStatus(Boolean isOnline) {
-        mStatus.setBackgroundColor(isOnline?
+        mStatus.setBackgroundColor(isOnline ?
                 getResources().getColor(R.color.colorOnline)
-                :getResources().getColor(R.color.colorOffline));
+                : getResources().getColor(R.color.colorOffline));
     }
 }

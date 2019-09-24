@@ -15,9 +15,9 @@
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:status="true"
+        app:isOnline="true"
         app:photo="@drawable/ic_boy"
-        app:nameText="Джон Смит"/>
+        app:name="Джон Смит"/>
 
     <team.lf.task41.AvatarView
         android:id="@+id/imageView1"

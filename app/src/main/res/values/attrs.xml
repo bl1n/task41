@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="AvatarView">
-        <attr name="nameText" format="string|reference"/>
-        <attr name="status" format="boolean"/>
-        <attr name="photo" format="integer"/>
+        <attr name="name" format="string|reference"/>
+        <attr name="isOnline" format="boolean"/>
+        <attr name="photo" format="reference"/>
     </declare-styleable>
 </resources>
